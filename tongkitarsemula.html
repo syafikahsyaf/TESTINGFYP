@@ -23,7 +23,7 @@
         justify-content: center;   /* vertical center */
         align-items: center;       /* horizontal center */
         text-align: center;
-        padding: 0 20px;           /* sikit padding untuk skrin kecil */
+        padding: 0 20px;           /* padding untuk skrin kecil */
     }
 
     h2 {
@@ -33,6 +33,7 @@
         line-height: 1.5;
     }
 
+    /* WRAPPER BUTTON */
     .bin-wrapper {
         display: flex;
         justify-content: center;
@@ -50,6 +51,7 @@
         transform: scale(1.08);
     }
 
+    /* BUTTON BACK */
     #back-btn {
         width: 100px;
         position: fixed;
@@ -62,6 +64,23 @@
     #back-btn:hover {
         transform: scale(1.1);
     }
+
+    /* 📱 RESPONSIVE PHONE */
+    @media (max-width: 768px) {
+        .bin-wrapper {
+            flex-direction: column !important;
+            gap: 20px;
+        }
+
+        .bin-btn {
+            width: 220px;
+        }
+
+        h2 {
+            font-size: 18px;
+        }
+    }
+
 </style>
 </head>
 
