@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECO-RECYCLE</title>
+
+  <!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600&family=Fredoka+One&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      overflow-y: auto; /* SCROLL BENARKAN BILA PERLU */
+      background: url("image-menu/menu.png") no-repeat center center/cover;
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      width: 100%;
+      min-height: 100dvh;   /* bukan fixed height */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 20px 20px 80px; /* extra bottom untuk phone kecil */
+      box-sizing: border-box;
+    }
+
+    /* TITLE SECTION */
+    .title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: -4vh;
+      text-align: center;
+    }
+
+    .title img {
+      width: clamp(40px, 8vw, 70px);
+    }
+
+    .title h1 {
+      margin: 0;
+      font-size: clamp(30px, 6vw, 60px);
+      color: #195f3b;
+      text-shadow: 2px 2px 0px #fff;
+      letter-spacing: 2px;
+      font-family: 'Fredoka One', cursive;
+    }
+
+    /* MENU BUTTON */
+    .menu-btn {
+        display: block;
+        width: min(260px, 80%);
+        margin: 15px auto;
+        padding: 16px;
+        background: #8cd878;
+        border: none;
+        border-radius: 35px;
+        font-size: clamp(18px, 4vw, 24px);
+        color: #0a331b;
+        font-family: 'Fredoka One', cursive;
+        cursor: pointer;
+        transition: 0.2s;
+        box-shadow: 0px 4px #62b251;
+    }
+
+    .menu-btn:active {
+      box-shadow: 0 2px #6ca55a;
+      transform: translateY(4px);
+    }
+
+    /* TOP ICONS */
+    #sound-btn, #info-btn {
+      position: absolute;
+      top: 20px;
+      width: clamp(50px, 10vw, 90px);
+      height: clamp(50px, 10vw, 90px); 
+      object-fit: contain;
+      cursor: pointer;
+    }
+
+    #sound-btn { left: 20px; }
+    #info-btn  { right: 20px; }
+
+    /* POPUP BOX */
+    .info-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(90%, 500px);
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      text-align: center;
+      display: none;
+      z-index: 999;
+      font-family: 'Baloo 2', cursive;
+      font-size: clamp(16px, 3.5vw, 20px);
+    }
+
+    .info-popup h2 {
+      margin-top: 0;
+      font-size: clamp(20px, 5vw, 28px);
+    }
+
+    .info-popup p {
+      text-align: justify;
+    }
+
+    /* CLOSE BUTTON */
+    .close-popup {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #87c46c;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Baloo 2', cursive;
+      font-size: clamp(16px, 4vw, 20px);
+    }
+
+    /* DOWNLOAD BUTTON */
+    .download-btn {
+      display: block;
+      margin: 15px auto;
+      padding: 12px 25px;
+      background: #4caf50;
+      color: white;
+      font-size: clamp(18px, 4vw, 22px);
+      border-radius: 25px;
+      text-decoration: none;
+      width: min(220px, 80%);
+      box-shadow: 0px 4px #2e7d32;
+      font-family: 'Baloo 2', cursive;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- SOUND BUTTON -->
+  <img id="sound-btn" src="image-menu/sound.png">
+
+  <!-- INFO BUTTON -->
+  <img id="info-btn" src="image-menu/info.png">
+
+  <!-- TITLE -->
+  <div class="title">
+    <img src="image-menu/logo.png">
+    <h1>ECO-RECYCLE</h1>
+  </div>
+
+  <!-- MENU BUTTONS -->
+  <button class="menu-btn" onclick="goMula()">MULA</button>
+  <button class="menu-btn" onclick="bukaCara()">CARA GUNA</button>
+  <button class="menu-btn" onclick="bukaDownload()">MUAT TURUN IMEJ SASARAN</button>
+  
+</div>
+
+<!-- POPUP CREDIT -->
+<div id="info-popup" class="info-popup">
+  <h2>Maklumat & Kredit</h2>
+  <p>Dibangunkan oleh: <b>Nurul Syafikah Bt Gunar</b></p>
+  <p>Aplikasi ini direka khas untuk membantu kanak-kanak mengenali jenis bahan buangan dan belajar cara kitar semula dengan lebih menyeronokkan menggunakan AR, model 3D, nota dan kuiz.</p>
+  <button class="close-popup" onclick="tutupInfo()">Tutup</button>
+</div>
+
+<!-- POPUP CARA GUNA -->
+<div id="cara-popup" class="info-popup">
+  <h2>Cara Guna Aplikasi</h2>
+  <p>1. Tekan <b>Mula</b> untuk melihat AR.</p>
+  <p>2. Halakan kamera ke kad (image target) untuk melihat AR.</p>
+  <p>3. Tekan ikon <b>Info</b> untuk lihat fakta menarik.</p>
+  <p>4. Jawab kuiz untuk uji pengetahuan anda.</p>
+  <button class="close-popup" onclick="tutupCara()">Tutup</button>
+</div>
+
+<!-- POPUP DOWNLOAD -->
+<div id="download-popup" class="info-popup">
+  <h2>Muat Turun Kad AR</h2>
+  <p>Klik butang di bawah untuk memuat turun semua imej sasaran.</p>
+
+  <a class="download-btn" href="assets/targets.zip" download>
+    Muat Turun
+  </a>
+
+  <button class="close-popup" onclick="tutupDownload()">Tutup</button>
+</div>
+
+<!-- BACKGROUND MUSIC -->
+<audio id="bg-music" src="sounds/home/musicbg.mp3" loop autoplay></audio>
+
+<script>
+  let music = document.getElementById("bg-music");
+  let soundBtn = document.getElementById("sound-btn");
+  let infoPopup = document.getElementById("info-popup");
+  let caraPopup = document.getElementById("cara-popup");
+  let downloadPopup = document.getElementById("download-popup");
+  let soundOn = true;
+
+  // SOUND TOGGLE
+  soundBtn.onclick = () => {
+    soundOn = !soundOn;
+    if (soundOn) music.play();
+    else music.pause();
+  };
+
+  // NAVIGATION
+  function goMula() { window.location.href = "mula.html"; }
+
+  // POPUP INFO
+  document.getElementById("info-btn").onclick = () => {
+    infoPopup.style.display = "block";
+  };
+  function tutupInfo() { infoPopup.style.display = "none"; }
+
+  // POPUP CARA GUNA
+  function bukaCara() { caraPopup.style.display = "block"; }
+  function tutupCara() { caraPopup.style.display = "none"; }
+
+  // POPUP DOWNLOAD
+  function bukaDownload() { downloadPopup.style.display = "block"; }
+  function tutupDownload() { downloadPopup.style.display = "none"; }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Eco-Recycle - Tong Kitar Semula</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: url("image-menu/menustart.png") no-repeat center center fixed;
+        background-size: cover;
+        overflow: hidden;
+    }
+
+    /* CENTERKAN CONTENT */
+    .container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;   /* vertical center */
+        align-items: center;       /* horizontal center */
+        text-align: center;
+        padding: 0 20px;           /* sikit padding untuk skrin kecil */
+    }
+
+    h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+        color: #333;
+        line-height: 1.5;
+    }
+
+    .bin-wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 10px;
+    }
+
+    .bin-btn {
+        width: 300px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .bin-btn:hover {
+        transform: scale(1.08);
+    }
+
+    #back-btn {
+        width: 100px;
+        position: fixed;
+        left: 20px;
+        bottom: 20px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    #back-btn:hover {
+        transform: scale(1.1);
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>
+        Adakah kamu tahu sampah apa yang<br>
+        sesuai dibuang dalam tong di bawah?<br>
+        Pilih satu untuk ketahuinya!
+    </h2>
+
+    <div class="bin-wrapper">
+        <img class="bin-btn" src="image-menu/bluebin.png" onclick="location.href='indextongb.html'">
+        <img class="bin-btn" src="image-menu/brownbin.png" onclick="location.href='indextongcok.html'">
+        <img class="bin-btn" src="image-menu/orangebin.png" onclick="location.href='indextongor.html'">
+    </div>
+</div>
+
+<audio id="bg-music" src="" loop autoplay></audio>
+<img id="back-btn" src="image-menu/back.png" onclick="goBack()">
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+</body>
+</html>

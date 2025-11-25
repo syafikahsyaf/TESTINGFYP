@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Eco-Recycle - Imbas AR page</title>
+
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600&family=Fredoka+One&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Baloo 2', cursive;
+        background: url("image-menu/menustart.png") no-repeat center center;
+        background-size: cover;
+        background-attachment: scroll;
+        overflow: hidden;
+    }
+
+    /* CONTAINER CENTER */
+    .container {
+        height: 100vh; 
+        max-width: 600px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: clamp(22px, 5vw, 32px);
+        margin-bottom: 5px;
+        color: #173c2b;
+        font-weight: 600;
+    }
+
+    p.subtitle {
+        margin-top: 0;
+        margin-bottom: 30px;
+        font-size: clamp(16px, 3.5vw, 22px);
+        color: #173c2b;
+    }
+
+    /* MENU BUTTON — FREDOKA ONE */
+    .menu-btn {
+        display: block;
+        width: min(260px, 80%);
+        margin: 15px auto;
+        padding: 16px;
+        background: #8cd878;
+        border: none;
+        border-radius: 35px;
+        font-size: clamp(18px, 4vw, 24px);
+        color: #0a331b;
+        font-family: 'Fredoka One', cursive;
+        cursor: pointer;
+        transition: 0.2s;
+        box-shadow: 0px 4px #62b251;
+    }
+
+    .menu-btn:hover {
+        transform: scale(1.05);
+    }
+
+    /* BACK BUTTON */
+    #back-btn {
+        width: clamp(90px, 14vw, 130px);
+        position: fixed;
+        left: clamp(10px, 3vw, 20px);
+        bottom: clamp(10px, 3vw, 20px);
+        cursor: pointer;
+        transition: 0.2s;
+        object-fit: contain;
+    }
+
+    #back-btn:hover {
+        transform: scale(1.1);
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Mari kenali tong dan proses kitar semula dengan AR.</h2>
+    <p class="subtitle">Pilih satu untuk bermula!</p>
+
+    <button class="menu-btn" onclick="location.href='tongkitarsemula.html'">TONG KITAR SEMULA</button>
+    <button class="menu-btn" onclick="location.href='proseskitar.html'">PROSES KITAR SEMULA</button>
+</div>
+
+<audio id="bg-music" src="" loop autoplay></audio>
+
+<img id="back-btn" src="image-menu/back.png" onclick="goBack()">
+
+<script>
+    function goBack() {
+        window.location.href = "mula.html";
+    }
+</script>
+
+</body>
+</html>
